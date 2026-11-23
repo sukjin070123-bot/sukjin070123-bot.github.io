@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Multi-Filter Gallery (4x3)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <header class="header">
+      <span class="badge">Pure CSS Multi-Filter</span>
+      <h1>포토 갤러리 (복수 선택 가능)</h1>
+      <p class="subtitle">자바스크립트 없이 HTML 체크박스(`type="checkbox"`)와 CSS 선택자만으로 여러 필터를 동시 적용할 수 있습니다.</p>
+    </header>
+
+    <!-- 폼 태그를 활용해 순수 HTML만으로 필터 리셋(초기화) 버튼 지원 -->
+    <form class="gallery-form">
+      <!-- 숨김 체크박스 (다중 선택 상태 제어) -->
+      <input type="checkbox" name="filter" id="filter-nature" class="filter-check">
+      <input type="checkbox" name="filter" id="filter-architecture" class="filter-check">
+      <input type="checkbox" name="filter" id="filter-animals" class="filter-check">
+      <input type="checkbox" name="filter" id="filter-travel" class="filter-check">
+
+      <!-- 필터 버튼 (label과 연결하여 토글 선택) -->
+      <nav class="filter-bar" aria-label="갤러리 카테고리 필터">
+        <label for="filter-nature" class="filter-btn">
+          <span class="check-box">✓</span>
+          자연 (Nature)
+        </label>
+        <label for="filter-architecture" class="filter-btn">
+          <span class="check-box">✓</span>
+          건축 (Architecture)
+        </label>
+        <label for="filter-animals" class="filter-btn">
+          <span class="check-box">✓</span>
+          동물 (Animals)
+        </label>
+        <label for="filter-travel" class="filter-btn">
+          <span class="check-box">✓</span>
+          여행 (Travel)
+        </label>
+
+        <!-- 순수 HTML Reset 버튼 (JS 없이 모든 체크박스 일괄 해제) -->
+        <button type="reset" class="reset-btn" title="선택한 필터 모두 해제">
+          <svg class="reset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
+          전체 초기화
+        </button>
+      </nav>
+
+      <p class="filter-hint">
+        💡 원하는 카테고리를 <strong>2개, 3개 이상 클릭하여 동시에 조합</strong>해보세요. (아무것도 선택하지 않으면 전체가 표시됩니다)
+      </p>
+
+      <!-- 4x3 갤러리 그리드 (총 12개 아이템) -->
+      <main class="gallery-grid">
+        <!-- 1. 자연 -->
+        <article class="gallery-item nature">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="안개 낀 호수와 산맥">
+              <span class="tag">자연</span>
+            </div>
+            <div class="card-info">
+              <h3>고요한 호수의 아침</h3>
+              <p>신비로운 안개와 웅장한 산맥이 어우러진 절경</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. 건축 -->
+        <article class="gallery-item architecture">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="현대적인 고층 빌딩">
+              <span class="tag">건축</span>
+            </div>
+            <div class="card-info">
+              <h3>모던 스카이라인</h3>
+              <p>하늘을 찌를 듯 솟아오른 기하학적 유리 마천루</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. 동물 -->
+        <article class="gallery-item animals">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="눈밭 위의 붉은 여우">
+              <span class="tag">동물</span>
+            </div>
+            <div class="card-info">
+              <h3>설원의 붉은 여우</h3>
+              <p>하얀 눈 덮인 숲속에서 마주친 야생의 시선</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. 여행 -->
+        <article class="gallery-item travel">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="에메랄드빛 해변">
+              <span class="tag">여행</span>
+            </div>
+            <div class="card-info">
+              <h3>에메랄드 해변</h3>
+              <p>파도가 부서지는 따스한 열대 해안가의 휴식</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. 자연 -->
+        <article class="gallery-item nature">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="햇살이 비치는 침엽수림">
+              <span class="tag">자연</span>
+            </div>
+            <div class="card-info">
+              <h3>피톤치드 숲길</h3>
+              <p>나뭇가지 사이로 쏟아져 내리는 황금빛 아침 햇살</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. 건축 -->
+        <article class="gallery-item architecture">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="미니멀한 인테리어와 빛">
+              <span class="tag">건축</span>
+            </div>
+            <div class="card-info">
+              <h3>빛과 공간의 미학</h3>
+              <p>직선과 곡선, 그림자가 빚어내는 구조적 아름다움</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. 동물 -->
+        <article class="gallery-item animals">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="숲속의 사슴">
+              <span class="tag">동물</span>
+            </div>
+            <div class="card-info">
+              <h3>숲속의 파수꾼</h3>
+              <p>초록빛 숲속에서 조용히 고개를 든 기품 있는 사슴</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. 여행 -->
+        <article class="gallery-item travel">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="파리의 낭만적인 골목길">
+              <span class="tag">여행</span>
+            </div>
+            <div class="card-info">
+              <h3>오래된 유럽 골목</h3>
+              <p>발길 닿는 곳마다 역사와 낭만이 깃든 거리</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. 자연 -->
+        <article class="gallery-item nature">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="붉은 노을 아래 사막 사구">
+              <span class="tag">자연</span>
+            </div>
+            <div class="card-info">
+              <h3>바람이 만든 사구</h3>
+              <p>끝없이 펼쳐진 모래 언덕과 붉게 물든 황혼</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. 건축 -->
+        <article class="gallery-item architecture">
+          <div class="card">
+            <div class="img-box">
+              <img
+                src="https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="대도시의 야경과 다리">
+              <span class="tag">건축</span>
+            </div>
+            <div class="card-info">
+              <h3>도시의 밤과 교량</h3>
+              <p>밤하늘 아래 환하게 빛나는 도시 인프라의 위용</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. 동물 -->
+        <article class="gallery-item animals">
+          <div class="card">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1543549790-8b5f4a028cfb?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="카리스마 있는 부엉이 클로즈업">
+              <span class="tag">동물</span>
+            </div>
+            <div class="card-info">
+              <h3>밤의 지배자 올빼미</h3>
+              <p>날카로운 눈빛과 정교한 깃털이 돋보이는 맹금류</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12. 여행 -->
+        <article class="gallery-item travel">
+          <div class="card">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=600&h=450&q=80"
+                alt="도시의 화려한 네온 야경">
+              <span class="tag">여행</span>
+            </div>
+            <div class="card-info">
+              <h3>잠들지 않는 도시</h3>
+              <p>화려한 불빛과 활기가 넘쳐나는 도심 속 탐험</p>
+            </div>
+          </div>
+        </article>
+      </main>
+    </form>
+  </div>
+
+</body>
+
+</html>
